@@ -23,8 +23,7 @@
         <?php
             echo $this->Form->control('username');
             echo $this->Form->control('password');
-            echo $this->Form->control('role', [
-				'options' => ['admin' => 'Admin', 'author' => 'Author'] ]);
+            echo $this->Form->control('role');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

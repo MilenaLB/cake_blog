@@ -18,8 +18,9 @@
             echo $this->Form->control('username');
             echo $this->Form->control('password');
             echo $this->Form->control('role', [
-                'options' => ['admin' => 'Admin', 'author' => 'Author'] ]);
-
+            'options' => ['admin' => 'Administrador', 'gestor_pessoas' =>
+            'Gestor de Pessoas', 'gestor_transportes' => 'Gestor de Transportes',
+            'gestor_impressao' => 'Gestor de Impressao'] ]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

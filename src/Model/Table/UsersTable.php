@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
+ * @property |\Cake\ORM\Association\HasMany $Articles
+ *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\User[] newEntities(array $data, array $options = [])
@@ -37,6 +39,10 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Articles', [
+            'foreignKey' => 'user_id'
+        ]);
     }
 
     /**
@@ -67,8 +73,14 @@ class UsersTable extends Table
             ->scalar('role')
             ->maxLength('role', 20)
             ->requirePresence('role', 'create')
+            ->notEmpty('role');
+
+        $validator
+            ->requirePresence('role', 'create')
             ->notEmpty('role')
-            ->add('role','inList',['rule'=> ['inList',['admin','author']],'message'=>'Por favor entre com um papel válido!']);
+            ->add('role', 'inList', [
+                'rule' => ['inList', ['admin', 'gestor_transportes', 'gestor_impressao', 'gestor_pessoas', 'servidor']],
+                'message' => 'Please enter a valid role']);
 
         return $validator;
     }

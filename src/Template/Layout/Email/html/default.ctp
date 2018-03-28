@@ -16,9 +16,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-    <title><?= $this->fetch('title') ?></title>
+ <title><?= $this->fetch('title') ?></title>
 </head>
 <body>
-    <?= $this->fetch('content') ?>
+<p>Olá <?= $nome ?>,</p>
+<p>a sua idade é <?= $idade ?>.
 </body>
 </html>
